@@ -1,0 +1,30 @@
+
+  name: disallow-host-process
+ description: >-
+      Windows pods offer the ability to run HostProcess containers which enables privileged
+      access to the Windows node. Privileged access to the host is disallowed in the baseline
+      policy. HostProcess pods are an alpha feature as of Kubernetes v1.22. This policy ensures
+      the `hostProcess` field, if present, is set to `false`.
+
+    - name: host-process-containers
+   
+      validate:
+        message: >-
+          HostProcess containers are disallowed. The fields spec.securityContext.windowsOptions.hostProcess,
+          spec.containers[*].securityContext.windowsOptions.hostProcess, spec.initContainers[*].securityContext.windowsOptions.hostProcess,
+          and spec.ephemeralContainers[*].securityContext.windowsOptions.hostProcess must either be undefined
+          or set to `false`.
+        pattern:
+          spec:
+            =(ephemeralContainers):
+              - =(securityContext):
+                  =(windowsOptions):
+                    =(hostProcess): "false"
+            =(initContainers):
+              - =(securityContext):
+                  =(windowsOptions):
+                    =(hostProcess): "false"
+            containers:
+              - =(securityContext):
+                  =(windowsOptions):
+                    =(hostProcess): "false"

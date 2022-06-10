@@ -1,0 +1,7 @@
+resources:
+  - disallow-capabilities-strict/resource.yaml
+  - disallow-privilege-escalation/resource.yaml
+  - require-run-as-non-root-user/resource.yaml
+  - require-run-as-nonroot/resource.yaml
+  - restrict-seccomp-strict/resource.yaml
+  - restrict-volume-types/resource.yaml

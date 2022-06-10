@@ -1,0 +1,13 @@
+resources:
+  - disallow-capabilities/resource.yaml
+  - disallow-host-namespaces/resource.yaml
+  - disallow-host-path/resource.yaml
+  - disallow-host-ports/resource.yaml
+  - disallow-host-process/resource.yaml
+  - disallow-privileged-containers/resource.yaml
+  - disallow-proc-mount/resource.yaml
+  - disallow-selinux/resource.yaml
+  - restrict-apparmor-profiles/resource.yaml
+  - restrict-seccomp/resource.yaml
+  - restrict-sysctls/resource.yaml
+  

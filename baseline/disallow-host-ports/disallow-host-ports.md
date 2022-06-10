@@ -1,0 +1,21 @@
+description: >-
+      Access to host ports allows potential snooping of network traffic and should not be
+      allowed, or at minimum restricted to a known list. This policy ensures the `hostPort`
+      field is unset or set to `0`. 
+
+validate:
+        message: >-
+          Use of host ports is disallowed. The fields spec.containers[*].ports[*].hostPort
+          , spec.initContainers[*].ports[*].hostPort, and spec.ephemeralContainers[*].ports[*].hostPort
+          must either be unset or set to `0`.
+        pattern:
+          spec:
+            =(ephemeralContainers):
+              - =(ports):
+                  - =(hostPort): 0
+            =(initContainers):
+              - =(ports):
+                  - =(hostPort): 0
+            containers:
+              - =(ports):
+                  - =(hostPort): 0

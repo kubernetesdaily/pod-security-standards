@@ -1,4 +1,4 @@
-
+```
   name: disallow-host-process
  description: >-
       Windows pods offer the ability to run HostProcess containers which enables privileged
@@ -28,3 +28,4 @@
               - =(securityContext):
                   =(windowsOptions):
                     =(hostProcess): "false"
+```                    

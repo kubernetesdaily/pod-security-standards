@@ -1,4 +1,4 @@
-
+```
   name: disallow-capabilities-strict
   Disallow Capabilities (Strict)
    Pod Security Standards (Restricted)
@@ -50,3 +50,4 @@
                   value:
                   - NET_BIND_SERVICE
                   - ''
+```                  

@@ -1,4 +1,4 @@
-
+```
   name: require-run-as-nonroot
  
   Require runAsNonRoot
@@ -40,3 +40,4 @@
             containers:
             - securityContext:
                 runAsNonRoot: true
+```

@@ -1,3 +1,4 @@
+  ```
   name: disallow-host-ports-range
   description: >-
       Access to host ports allows potential snooping of network traffic and should not be
@@ -15,3 +16,4 @@
             - key: "{{ request.object.spec.[ephemeralContainers, initContainers, containers][].ports[].hostPort }}"
               operator: AnyNotIn
               value: 5000-6000
+              ```

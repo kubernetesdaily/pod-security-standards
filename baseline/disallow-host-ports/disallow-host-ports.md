@@ -1,3 +1,4 @@
+```
 description: >-
       Access to host ports allows potential snooping of network traffic and should not be
       allowed, or at minimum restricted to a known list. This policy ensures the `hostPort`
@@ -19,3 +20,4 @@ validate:
             containers:
               - =(ports):
                   - =(hostPort): 0
+```                  

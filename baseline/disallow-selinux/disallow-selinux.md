@@ -1,4 +1,5 @@
-adescription: >-
+```
+description: >-
       SELinux options can be used to escalate privileges and should not be allowed. This policy
       ensures that the `seLinuxOptions` field is undefined.
 
@@ -62,3 +63,4 @@ adescription: >-
                   =(seLinuxOptions):
                     X(user): "null"
                     X(role): "null"
+```

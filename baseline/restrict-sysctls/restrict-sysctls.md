@@ -1,4 +1,4 @@
-
+```
   name: restrict-sysctls
   description: >-
       Sysctls can disable security mechanisms or affect all containers on a
@@ -21,3 +21,4 @@
             =(securityContext):
               =(sysctls):
                 - =(name): "kernel.shm_rmid_forced | net.ipv4.ip_local_port_range | net.ipv4.ip_unprivileged_port_start | net.ipv4.tcp_syncookies | net.ipv4.ping_group_range"
+```

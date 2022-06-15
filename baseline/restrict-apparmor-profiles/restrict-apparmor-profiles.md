@@ -1,7 +1,6 @@
-
+```
   name: restrict-apparmor-profiles
-
-description: >-
+  description: >-
       On supported hosts, the 'runtime/default' AppArmor profile is applied by default.
       The default policy should prevent overriding or disabling the policy, or restrict
       overrides to an allowed set of profiles. This policy ensures Pods do not
@@ -18,3 +17,4 @@ description: >-
           =(metadata):
             =(annotations):
               =(container.apparmor.security.beta.kubernetes.io/*): "runtime/default | localhost/*"
+```

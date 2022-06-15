@@ -1,3 +1,4 @@
+```
 name: disallow-privileged-containers
 description: >-
       Privileged mode disables most security mechanisms and must not be allowed. This policy
@@ -18,3 +19,4 @@ description: >-
             containers:
               - =(securityContext):
                   =(privileged): "false"
+```

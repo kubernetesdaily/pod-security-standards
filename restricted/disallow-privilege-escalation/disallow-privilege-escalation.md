@@ -1,4 +1,4 @@
-
+```
   name: disallow-privilege-escalation
   description: >-
       Privilege escalation, such as via set-user-ID or set-group-ID file mode, should not be allowed.
@@ -25,3 +25,4 @@
             containers:
             - securityContext:
                 allowPrivilegeEscalation: "false"
+```

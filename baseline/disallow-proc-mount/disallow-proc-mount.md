@@ -1,4 +1,4 @@
-
+```
   name: disallow-proc-mount
   description: >-
       The default /proc masks are set up to reduce attack surface and should be required. This policy
@@ -23,3 +23,4 @@
             containers:
               - =(securityContext):
                   =(procMount): "Default"
+```

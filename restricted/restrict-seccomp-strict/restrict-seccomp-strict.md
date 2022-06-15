@@ -1,4 +1,4 @@
-
+```
   name: restrict-seccomp-strict
 
    Restrict Seccomp (Strict)
@@ -53,3 +53,4 @@ description: >-
             - securityContext:
                 seccompProfile:
                   type: "RuntimeDefault | Localhost"
+```

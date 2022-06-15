@@ -1,3 +1,4 @@
+  ```
   name: disallow-capabilities
   Adding capabilities beyond those listed in the policy must be disallowed.
   validate:
@@ -22,3 +23,4 @@
               - SETPCAP
               - SETUID
               - SYS_CHROOT
+```

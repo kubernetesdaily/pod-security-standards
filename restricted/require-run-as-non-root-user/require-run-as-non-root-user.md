@@ -1,4 +1,4 @@
-
+```
   name: require-run-as-non-root-user
   Require Run As Non-Root User
    Pod Security Standards (Restricted)
@@ -27,3 +27,4 @@ validate:
             containers:
             - =(securityContext):
                 =(runAsUser): ">0"
+```

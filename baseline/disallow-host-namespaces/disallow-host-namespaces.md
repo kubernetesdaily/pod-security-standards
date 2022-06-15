@@ -1,3 +1,5 @@
+
+```
 name: disallow-host-namespaces
    Host namespaces (Process ID namespace, Inter-Process Communication namespace, and
    network namespace) allow access to shared information and can be used to elevate
@@ -12,3 +14,4 @@ validate:
             =(hostPID): "false"
             =(hostIPC): "false"
             =(hostNetwork): "false"
+```

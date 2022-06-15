@@ -1,4 +1,4 @@
-
+```
   name: restrict-seccomp
   description: >-
       The seccomp profile must not be explicitly set to Unconfined. This policy, 
@@ -30,3 +30,4 @@
             - =(securityContext):
                 =(seccompProfile):
                   =(type): "RuntimeDefault | Localhost"
+```

@@ -1,5 +1,4 @@
-# badpod
-
+# pod security standards 
 
 ## apply to namespace level  
 ```

@@ -2,7 +2,7 @@
 
 
 ## apply to namespace level  
-
+```
 cat << EOF | kubectl apply -f -
 apiVersion: v1
 kind: Namespace
@@ -30,11 +30,26 @@ metadata:
     pod-security.kubernetes.io/audit:  restricted
     pod-security.kubernetes.io/audit-version: latest
 EOF
+```
 
-## create pod on baseline 
+```
+cd baseline 
+```
+
+## create pod on baseline namespace 
 
 ```
  kubectl apply -f resource.yaml --namespace=my-baseline-namespace
  ```
 
- 
+## create pod on restricted namespace 
+
+change dir
+
+```
+cd restricted 
+```
+
+```
+ kubectl apply -f resource.yaml --namespace=my-restricted-namespace 
+ ```

@@ -1,5 +1,6 @@
 # pod security standards 
 
+
 ## apply to namespace level  
 ```
 cat << EOF | kubectl apply -f -
@@ -52,3 +53,8 @@ cd restricted
 ```
  kubectl apply -f resource.yaml --namespace=my-restricted-namespace 
  ```
+
+
+check it out :- https://github.com/sangam14/pod-security-standards
+
+ 

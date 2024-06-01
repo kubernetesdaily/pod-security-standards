@@ -1,0 +1,360 @@
+###### Pods - Good
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goodpod01
+spec:
+  containers:
+  - name: container01
+    image: busybox
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goodpod02
+spec:
+  containers:
+  - name: container01
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - SETGID  # Allowed capability
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goodpod03
+spec:
+  containers:
+  - name: container01
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - DAC_OVERRIDE  # Allowed capability
+  - name: container02
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - SETGID  # Allowed capability
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goodpod04
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: busybox
+  containers:
+  - name: container01
+    image: busybox
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goodpod05
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - DAC_OVERRIDE  # Allowed capability
+  containers:
+  - name: container01
+    image: busybox
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: goodpod06
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - DAC_OVERRIDE  # Allowed capability
+  containers:
+  - name: container01
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - SETGID  # Allowed capability
+---
+###### Deployments - Good
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gooddeployment01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: container01
+        image: busybox
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gooddeployment02
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: container01
+        image: busybox
+        securityContext:
+          capabilities:
+            add:
+            - SETGID  # Allowed capability
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gooddeployment03
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: container01
+        image: busybox
+        securityContext:
+          capabilities:
+            add:
+            - DAC_OVERRIDE  # Allowed capability
+      - name: container02
+        image: busybox
+        securityContext:
+          capabilities:
+            add:
+            - SETGID  # Allowed capability
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gooddeployment04
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      initContainers:
+      - name: initcontainer01
+        image: busybox
+      containers:
+      - name: container01
+        image: busybox
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gooddeployment05
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      initContainers:
+      - name: initcontainer01
+        image: busybox
+        securityContext:
+          capabilities:
+            add:
+            - DAC_OVERRIDE  # Allowed capability
+      containers:
+      - name: container01
+        image: busybox
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gooddeployment06
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      initContainers:
+      - name: initcontainer01
+        image: busybox
+        securityContext:
+          capabilities:
+            add:
+            - DAC_OVERRIDE  # Allowed capability
+      containers:
+      - name: container01
+        image: busybox
+        securityContext:
+          capabilities:
+            add:
+            - SETGID  # Allowed capability
+---
+###### CronJobs - Good
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: goodcronjob01
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: container01
+            image: busybox
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: goodcronjob02
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: container01
+            image: busybox
+            securityContext:
+              capabilities:
+                add:
+                - SETGID  # Allowed capability
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: goodcronjob03
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+          - name: container01
+            image: busybox
+            securityContext:
+              capabilities:
+                add:
+                - DAC_OVERRIDE  # Allowed capability
+          - name: container02
+            image: busybox
+            securityContext:
+              capabilities:
+                add:
+                - SETGID  # Allowed capability
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: goodcronjob04
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          initContainers:
+          - name: initcontainer01
+            image: busybox
+          containers:
+          - name: container01
+            image: busybox
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: goodcronjob05
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          initContainers:
+          - name: initcontainer01
+            image: busybox
+            securityContext:
+              capabilities:
+                add:
+                - DAC_OVERRIDE  # Allowed capability
+          containers:
+          - name: container01
+            image: busybox
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: goodcronjob06
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          initContainers:
+          - name: initcontainer01
+            image: busybox
+            securityContext:
+              capabilities:
+                add:
+                - DAC_OVERRIDE  # Allowed capability
+          containers:
+          - name: container01
+            image: busybox
+            securityContext:
+              capabilities:
+                add:
+                - SETGID  # Allowed capability

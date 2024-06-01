@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod04
+spec:
+  hostPID: true
+  hostIPC: true
+  hostNetwork: true
+  containers:
+  - name: container01
+    image: busybox
+    command: ["sh", "-c", "sleep 3600"]

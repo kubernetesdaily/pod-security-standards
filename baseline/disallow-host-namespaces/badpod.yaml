@@ -1,0 +1,44 @@
+###### Pods - Bad
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod01
+spec:
+  hostPID: true
+  containers:
+  - name: container01
+    image: dummyimagename
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod02
+spec:
+  hostIPC: true
+  containers:
+  - name: container01
+    image: dummyimagename
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod03
+spec:
+  hostNetwork: true
+  containers:
+  - name: container01
+    image: dummyimagename
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod04
+spec:
+  hostPID: true
+  hostIPC: true
+  hostNetwork: true
+  containers:
+  - name: container01
+    image: dummyimagename
+---

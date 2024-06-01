@@ -1,0 +1,38 @@
+###### Pods - Bad
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod01
+spec:
+  containers:
+  - name: container01
+    image: dummyimagename
+    volumeMounts:
+      - name: udev
+        mountPath: /data
+  volumes:
+  - name: udev
+    hostPath:
+      path: /etc/udev
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod02
+spec:
+  containers:
+  - name: container01
+    image: dummyimagename
+    volumeMounts:
+      - name: udev
+        mountPath: /data
+      - name: temp
+        mountPath: /scratch
+  volumes:
+  - name: temp
+    emptyDir: {}
+  - name: udev
+    hostPath:
+      path: /etc/udev
+---

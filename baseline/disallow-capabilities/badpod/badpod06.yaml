@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: badpod06
+spec:
+  initContainers:
+  - name: initcontainer01
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - NET_RAW  # Disallowed capability
+  containers:
+  - name: container01
+    image: busybox
+    securityContext:
+      capabilities:
+        add:
+        - SYS_ADMIN  # Disallowed capability
